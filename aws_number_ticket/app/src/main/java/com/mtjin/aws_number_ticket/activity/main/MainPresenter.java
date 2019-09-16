@@ -23,7 +23,7 @@ public class MainPresenter implements  MainContract.Presenter {
     public void requestSearch(String restaurant) {
         view.showProgress();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<RestaurantInfo> call = apiInterface.getRestaurants(restaurant);
+            Call<RestaurantInfo> call = apiInterface.getRestaurants(restaurant);
         call.enqueue(new Callback<RestaurantInfo>() {
             @Override
             public void onResponse(Call<RestaurantInfo> call, Response<RestaurantInfo> response) {

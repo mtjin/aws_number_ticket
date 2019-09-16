@@ -13,6 +13,6 @@ public interface ReserveContract {
     }
 
     interface Presenter{
-        void requestReserve(String restaurant_id, String apply_id, String apply_date, String reserve_date, String user_tel); //로그인 요청
+        void requestReserve(String restaurant_id, String apply_id, String apply_date, String reserve_date, String user_tel, String accept); //레스토랑 예약
     }
 }

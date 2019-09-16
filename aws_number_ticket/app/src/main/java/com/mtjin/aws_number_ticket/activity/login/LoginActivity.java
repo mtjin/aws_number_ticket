@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mtjin.aws_number_ticket.R;
+import com.mtjin.aws_number_ticket.activity.admin.AdminActivity;
 import com.mtjin.aws_number_ticket.activity.main.MainActivity;
 import com.mtjin.aws_number_ticket.activity.signup.SignupActivity;
 
@@ -19,12 +20,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     EditText pwEdit;
     Button loginButton;
     Button signupButton;
+    Button reserveButton;
     Button.OnClickListener onClickListener;
     ProgressDialog progressDialog;
 
     LoginPresenter presenter;
 
     private final String ID_EXTRA = "ID_EXTRA";
+    private final String USERNAME_EXTRA = "USERNAME_EXTRA";
     private final String RESTAURANT_EXTRA = "RESTAURANT_EXTRA";
     private final String LOCATION_EXTRA = "LOCATION_EXTRA";
     private final String TEL_EXTRA = "TEL_EXTRA";
@@ -36,9 +39,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         pwEdit = findViewById(R.id.login_et_pw);
         loginButton = findViewById(R.id.login_btn_login);
         signupButton = findViewById(R.id.login_btn_signup);
+        reserveButton = findViewById(R.id.login_btn_reserve);
         setOnClickListener();
         loginButton.setOnClickListener(onClickListener);
         signupButton.setOnClickListener(onClickListener);
+        reserveButton.setOnClickListener(onClickListener);
 
         //다이얼로그
         progressDialog = new ProgressDialog(this);
@@ -67,6 +72,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.login_btn_reserve:
+                        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(mainIntent);
+                        break;
                 }
             }
         };
@@ -88,13 +97,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void successLogin(String userId, String restaurant, String location, String tel) {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.putExtra(ID_EXTRA, userId);
-        intent.putExtra(RESTAURANT_EXTRA,restaurant);
-        intent.putExtra(LOCATION_EXTRA, location);
-        intent.putExtra(TEL_EXTRA, tel);
-        startActivity(intent);
+    public void successLogin(int id, String userId, String restaurant, String location, String tel) {
+        Intent adminIntent = new Intent(LoginActivity.this, AdminActivity.class);
+        adminIntent.putExtra(ID_EXTRA, id);
+        /*adminIntent.putExtra(USERNAME_EXTRA, userId);
+        adminIntent.putExtra(RESTAURANT_EXTRA,restaurant);
+        adminIntent.putExtra(LOCATION_EXTRA, location);
+        adminIntent.putExtra(TEL_EXTRA, tel);*/
+        startActivity(adminIntent);
     }
 
 }

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mtjin.aws_number_ticket">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.Reserve.ReserveActivity"></activity>
+        <activity android:name=".activity.admin.AdminActivity"></activity>
+        <activity android:name=".activity.Reserve.ReserveActivity" />
         <activity android:name=".activity.main.MainActivity" />
         <activity android:name=".activity.signup.SignupActivity" />
         <activity android:name=".activity.login.LoginActivity">
@@ -23,7 +26,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

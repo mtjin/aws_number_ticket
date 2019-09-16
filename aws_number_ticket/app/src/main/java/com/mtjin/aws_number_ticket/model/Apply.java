@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Apply {
     @Expose
+    @SerializedName("id") private int id;
+    @Expose
     @SerializedName("restaurant_id") private int restaurant_id;
     @Expose
     @SerializedName("apply_id") private String apply_id;
@@ -15,10 +17,19 @@ public class Apply {
     @Expose
     @SerializedName("user_tel") private String user_tel;
     @Expose
+    @SerializedName("accept") private String accept;
+    @Expose
     @SerializedName("result") private Boolean result;
     @Expose
     @SerializedName("msg") private String msg;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public int getRestaurant_id() {
         return restaurant_id;
     }
@@ -57,6 +68,14 @@ public class Apply {
 
     public void setUser_tel(String user_tel) {
         this.user_tel = user_tel;
+    }
+
+    public String getAccept() {
+        return accept;
+    }
+
+    public void setAccept(String accept) {
+        this.accept = accept;
     }
 
     public Boolean getResult() {

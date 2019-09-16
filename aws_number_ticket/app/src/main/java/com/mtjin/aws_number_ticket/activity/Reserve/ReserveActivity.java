@@ -116,7 +116,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
                 }else if(date.contains("?") || time.contains("?")){
                     onToastMessage("예약날짜와 시간을 정해주세요");
                 }else{
-                    presenter.requestReserve(id+"", name, currentDate, date +" "+ time, tel );
+                    presenter.requestReserve(id+"", name, currentDate, date +" "+ time, tel, "no" );
                 }
             }
         });
@@ -138,7 +138,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
         Calendar pickedDate = Calendar.getInstance(tz, Locale.KOREA);
         Calendar minDate = Calendar.getInstance(tz, Locale.KOREA);
 
-        pickedDate.set(pickedDate.get(Calendar.YEAR), pickedDate.get(Calendar.MONTH) + 1, pickedDate.get(Calendar.DATE));
+        pickedDate.set(pickedDate.get(Calendar.YEAR), pickedDate.get(Calendar.MONTH), pickedDate.get(Calendar.DATE));
 
         datePickerDialog = new DatePickerDialog(
                 ReserveActivity.this, R.style.DialogTheme,
@@ -147,7 +147,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         Toast.makeText(getApplicationContext(), "선택날짜 : " + year + "-" + (month + 1) + "-" + dayOfMonth, Toast.LENGTH_LONG).show();
                         yearText.setText(year + "");
-                        monthText.setText(month + "");
+                        monthText.setText(month + 1 + "");
                         dayText.setText(dayOfMonth + "");
                     }
                 },
@@ -158,7 +158,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
         );
 
 
-        minDate.set(minDate.get(Calendar.YEAR), minDate.get(Calendar.MONTH) + 1, minDate.get(Calendar.DATE));
+        minDate.set(minDate.get(Calendar.YEAR), minDate.get(Calendar.MONTH) , minDate.get(Calendar.DATE));
         datePickerDialog.getDatePicker().setMinDate(minDate.getTime().getTime());
         datePickerDialog.setMessage("예약날짜 선택");
     }
