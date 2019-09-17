@@ -17,6 +17,7 @@ public interface AdminContract {
         void requestAccept(int id); //예약수락하기
         void requestCancel(int id); //내 가게 예약한 목록 보기
         void requestAdminCertain(int restaurant_id, String reserve_date); //특정 날짜 내가게 예약한 목록 보기
+        void resquestAcceptAlarm(int id , boolean isAccept); //예약수락 알림
     }
 
 }

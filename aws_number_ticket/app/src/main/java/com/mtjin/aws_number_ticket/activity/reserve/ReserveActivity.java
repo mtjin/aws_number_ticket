@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -123,12 +124,16 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
                 else if(date.contains("?") || time.contains("?")){
                     onToastMessage("예약날짜와 시간을 정해주세요");
                 }else{
-                    presenter.requestReserve(id, restaurantName, name, currentDate, date +" "+ time, tel, pw, "no" );
+                    presenter.requestReserve(id, restaurantName, name, currentDate, date +" "+ time, tel, pw, "no", getFcmToken() );
                 }
             }
         });
+    }
 
-
+    private String getFcmToken(){
+        SharedPreferences pref = getSharedPreferences("fcmToken", MODE_PRIVATE);
+        String token = pref.getString("token","");
+        return  token;
     }
 
     private void processIntent() {

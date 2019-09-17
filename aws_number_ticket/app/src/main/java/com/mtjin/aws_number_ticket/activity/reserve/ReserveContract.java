@@ -9,6 +9,7 @@ public interface ReserveContract {
     }
 
     interface Presenter{
-        void requestReserve(int restaurant_id, String restaurant_name, String apply_id, String apply_date, String reserve_date, String user_tel, String user_pw, String accept); //레스토랑 예약
+        void requestReserve(int restaurant_id, String restaurant_name, String apply_id, String apply_date, String reserve_date, String user_tel, String user_pw, String accept, String fcm); //레스토랑 예약
+        void requestFcm(int id);
     }
 }

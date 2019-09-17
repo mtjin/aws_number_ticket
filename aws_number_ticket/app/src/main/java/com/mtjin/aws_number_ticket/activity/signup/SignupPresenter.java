@@ -47,10 +47,10 @@ public class SignupPresenter  implements SignupContract.Presenter{
     }
 
     @Override
-    public void requestSignup(String userId, String userPassword, String userRestaurant, String restaurantLocation,  String restaurantTel) {
+    public void requestSignup(String userId, String userPassword, String userRestaurant, String restaurantLocation,  String restaurantTel, String fcm) {
         view.showProgress();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<User> call = apiInterface.saveUser(userId, userPassword, userRestaurant, restaurantLocation,restaurantTel );
+        Call<User> call = apiInterface.saveUser(userId, userPassword, userRestaurant, restaurantLocation,restaurantTel, fcm );
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

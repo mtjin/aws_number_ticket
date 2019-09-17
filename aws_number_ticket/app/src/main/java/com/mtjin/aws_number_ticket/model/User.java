@@ -17,6 +17,8 @@ public class User {
     @Expose
     @SerializedName("restaurantTel") private String restaurantTel;
     @Expose
+    @SerializedName("fcm") private String fcm;
+    @Expose
     @SerializedName("result") private Boolean result;
     @Expose
     @SerializedName("msg") private String msg;
@@ -67,6 +69,14 @@ public class User {
 
     public void setRestaurantTel(String restaurantTel) {
         this.restaurantTel = restaurantTel;
+    }
+
+    public String getFcm() {
+        return fcm;
+    }
+
+    public void setFcm(String fcm) {
+        this.fcm = fcm;
     }
 
     public Boolean getResult() {

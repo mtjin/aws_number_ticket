@@ -23,6 +23,8 @@ public class Apply {
     @Expose
     @SerializedName("accept") private String accept;
     @Expose
+    @SerializedName("fcm") private String fcm;
+    @Expose
     @SerializedName("result") private Boolean result;
     @Expose
     @SerializedName("msg") private String msg;
@@ -97,6 +99,14 @@ public class Apply {
 
     public void setAccept(String accept) {
         this.accept = accept;
+    }
+
+    public String getFcm() {
+        return fcm;
+    }
+
+    public void setFcm(String fcm) {
+        this.fcm = fcm;
     }
 
     public Boolean getResult() {

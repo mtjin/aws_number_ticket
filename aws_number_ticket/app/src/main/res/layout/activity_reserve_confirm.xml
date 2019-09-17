@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg_brown_gradation"
     tools:context=".activity.reserve_confirm.ReserveConfirmActivity"
     >
 
 
     <EditText
+        android:background="@color/colorWhite"
+        android:padding="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/confirm_et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +24,10 @@
         android:textSize="20dp"
         />
     <EditText
+        android:background="@color/colorWhite"
+        android:padding="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/confirm_et_tel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +40,10 @@
         />
 
     <EditText
+        android:background="@color/colorWhite"
+        android:padding="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/confirm_et_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,12 +55,15 @@
         />
 
     <Button
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/confirm_btn_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:hint="검색"
+        android:background="@color/colorBrown"
         android:textSize="20dp"
         />
 

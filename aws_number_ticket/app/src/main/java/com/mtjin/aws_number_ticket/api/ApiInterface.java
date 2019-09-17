@@ -20,7 +20,8 @@ public interface ApiInterface {
             @Field("userPassword") String userPassword,
             @Field("userRestaurant") String userRestaurant,
             @Field("restaurantLocation") String restaurantLocation,
-            @Field("restaurantTel") String restaurantTel
+            @Field("restaurantTel") String restaurantTel,
+            @Field("fcm") String fcm
     );
 
     @FormUrlEncoded
@@ -52,7 +53,8 @@ public interface ApiInterface {
             @Field("reserve_date") String reserve_date,
             @Field("user_tel") String user_tel,
             @Field("user_pw") String user_pw,
-            @Field("accept") String accept
+            @Field("accept") String accept,
+            @Field("fcm") String fcm
     );
 
     @FormUrlEncoded
@@ -64,6 +66,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("restaurant/accept")
     Call<Apply> updateAccept(
+            @Field("id") int id
+    );
+
+    @FormUrlEncoded
+    @POST("restaurant/accept/alarm")
+    Call<Apply> getAcceptFcm(
             @Field("id") int id
     );
 
@@ -86,5 +94,18 @@ public interface ApiInterface {
             @Field("apply_id") String apply_id,
             @Field("user_tel") String user_tel,
             @Field("user_pw") String user_pw
+    );
+
+    @FormUrlEncoded
+    @POST("user/fcm")
+    Call<User> updateFcm(
+            @Field("id") int id,
+            @Field("fcm") String fcm
+    );
+
+    @FormUrlEncoded
+    @POST("restaurant/reserve/alarm")
+    Call<User> getReserveFcm(
+            @Field("id") int id
     );
 }

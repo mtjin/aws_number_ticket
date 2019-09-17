@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,10 +30,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     LoginPresenter presenter;
 
     private final String ID_EXTRA = "ID_EXTRA";
-    private final String USERNAME_EXTRA = "USERNAME_EXTRA";
-    private final String RESTAURANT_EXTRA = "RESTAURANT_EXTRA";
-    private final String LOCATION_EXTRA = "LOCATION_EXTRA";
-    private final String TEL_EXTRA = "TEL_EXTRA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,14 +101,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void successLogin(int id, String userId, String restaurant, String location, String tel) {
+    public void successLogin(int id) {
+        presenter.requestUpdateFcm(id, getFcmToken());
         Intent adminIntent = new Intent(LoginActivity.this, AdminActivity.class);
         adminIntent.putExtra(ID_EXTRA, id);
-        /*adminIntent.putExtra(USERNAME_EXTRA, userId);
-        adminIntent.putExtra(RESTAURANT_EXTRA,restaurant);
-        adminIntent.putExtra(LOCATION_EXTRA, location);
-        adminIntent.putExtra(TEL_EXTRA, tel);*/
         startActivity(adminIntent);
+    }
+
+    private String getFcmToken(){
+        SharedPreferences pref = getSharedPreferences("fcmToken", MODE_PRIVATE);
+        String token = pref.getString("token","");
+        return  token;
     }
 
 }

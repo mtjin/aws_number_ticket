@@ -53,14 +53,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="01012345678"/>
-    <Button
-        android:id="@+id/item_restaurant_btn_reserve"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:textSize="10dp"
-        android:text="예약"/>
+
+        <Button
+            android:id="@+id/item_restaurant_btn_reserve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorBrown"
+            android:text="예약"
+            android:textSize="10dp"
+            />
     </LinearLayout>
     <View
         android:layout_width="match_parent"

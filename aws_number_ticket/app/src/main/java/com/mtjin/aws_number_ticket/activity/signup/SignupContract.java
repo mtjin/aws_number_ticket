@@ -12,6 +12,6 @@ public interface SignupContract {
     }
     interface Presenter{
         void requestCheckId(String userId); //아이디 중복확인 요청
-        void requestSignup(String userId, String userPassword, String userRestaurant, String restaurantLocation , String restaurantTel); //회원가입 요청
+        void requestSignup(String userId, String userPassword, String userRestaurant, String restaurantLocation , String restaurantTel, String fcm); //회원가입 요청
     }
 }

@@ -5,9 +5,10 @@ public interface LoginContract {
         void onToastMessage(String message); //토스트메세지
         void showProgress();
         void hideProgress();
-        void successLogin(int id, String userId, String restaurant ,String location ,String tel);
+        void successLogin(int id);
     }
     interface Presenter{
         void requestLogin(String userId, String userPassword); //로그인 요청
+        void requestUpdateFcm(int id, String fcm);
     }
 }

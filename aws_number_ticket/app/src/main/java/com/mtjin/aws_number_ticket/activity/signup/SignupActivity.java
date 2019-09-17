@@ -2,6 +2,7 @@ package com.mtjin.aws_number_ticket.activity.signup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -87,13 +88,19 @@ public class SignupActivity extends AppCompatActivity implements SignupContract.
                             onToastMessage("전화번호를 입력해주세요");
                         }
                         else{
-                            presenter.requestSignup(userId, pwd, restaurant ,location, tel);
+                            presenter.requestSignup(userId, pwd, restaurant ,location, tel, getFcmToken());
                             finish();
                         }
                         break;
                 }
             }
         };
+    }
+
+    private String getFcmToken(){
+        SharedPreferences pref = getSharedPreferences("fcmToken", MODE_PRIVATE);
+        String token = pref.getString("token","");
+        return  token;
     }
 
     @Override

@@ -2,78 +2,99 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorRed"
+    android:background="@drawable/bg_brown_gradation"
     android:weightSum="10"
     android:orientation="vertical">
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="예약관리앱"
+        android:src="@drawable/ic_logo"
         android:textColor="@color/colorWhite"
-        android:textSize="50dp"
         android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
         android:orientation="vertical"
         >
-    <EditText
-        android:id="@+id/login_et_id"
-        android:padding="8dp"
-        android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorWhite"
-        android:hint="아이디" />
 
-    <EditText
-        android:id="@+id/login_et_pw"
-        android:padding="8dp"
-        android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorWhite"
-        android:hint="비밀번호" />
-     <Button
-         android:id="@+id/login_btn_login"
-         android:layout_marginTop="20dp"
-         android:layout_gravity="center"
-         android:layout_width="250dp"
-         android:layout_height="40dp"
-         android:background="@color/colorOrange"
-         android:text="점주 로그인"/>
-        <Button
-            android:id="@+id/login_btn_signup"
-            android:layout_marginTop="20dp"
+        <LinearLayout
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_radius"
+            android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/login_et_id"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="@color/colorOrange"
-            android:text="점주 회원가입"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:hint="아이디"
+            android:drawableStart="@drawable/ic_person_black_24dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:padding="8dp"
+            />
+
+        <EditText
+            android:drawableStart="@drawable/ic_https_black_24dp"
+            android:drawableLeft="@drawable/ic_https_black_24dp"
+            android:id="@+id/login_et_pw"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:hint="비밀번호"
+            android:padding="8dp"
+            />
+
+        <Button
+            android:id="@+id/login_btn_login"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrown"
+            android:text="점주 로그인"
+            />
+
+        <Button
+            android:id="@+id/login_btn_signup"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrown"
+            android:text="점주 회원가입"
+            />
 
         <Button
             android:id="@+id/login_btn_reserve"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="@color/colorOrange"
-            android:text="예약하기"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrown"
+            android:text="예약하기"
+            />
 
         <Button
             android:id="@+id/login_btn_reserve_confirm"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:background="@color/colorOrange"
-            android:text="내 예약확인"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrown"
+            android:text="내 예약확인"
+            />
+        </LinearLayout>
     </LinearLayout>
 
 

@@ -19,46 +19,47 @@
             android:padding="2dp"
             android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="신청아이디"/>
         <View
             android:layout_width="1dp"
             android:background="@color/colorBlack"
-            android:layout_height="50dp"/>
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/item_apply_tv_applydate"
             android:padding="2dp"
             android:layout_weight="3"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="신청날짜"/>
         <View
             android:layout_width="1dp"
             android:background="@color/colorBlack"
-            android:layout_height="50dp"/>
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/item_apply_tv_reservedate"
             android:padding="2dp"
             android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="예약날짜"/>
         <View
             android:layout_width="1dp"
             android:background="@color/colorBlack"
-            android:layout_height="50dp"/>
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/item_apply_tv_tel"
             android:padding="2dp"
             android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="전화번호"/>
         <Button
             android:id="@+id/item_apply_btn_ok"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:background="@color/colorBrown"
             android:layout_height="50dp"
             android:textSize="10dp"
             android:text="수락"/>
