@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.mtjin.aws_number_ticket.R;
 import com.mtjin.aws_number_ticket.activity.admin.AdminActivity;
 import com.mtjin.aws_number_ticket.activity.main.MainActivity;
+import com.mtjin.aws_number_ticket.activity.reserve_confirm.ReserveConfirmActivity;
 import com.mtjin.aws_number_ticket.activity.signup.SignupActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     Button loginButton;
     Button signupButton;
     Button reserveButton;
+    Button reserveConfirmButton;
     Button.OnClickListener onClickListener;
     ProgressDialog progressDialog;
 
@@ -40,11 +42,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         loginButton = findViewById(R.id.login_btn_login);
         signupButton = findViewById(R.id.login_btn_signup);
         reserveButton = findViewById(R.id.login_btn_reserve);
+        reserveConfirmButton = findViewById(R.id.login_btn_reserve_confirm);
         setOnClickListener();
         loginButton.setOnClickListener(onClickListener);
         signupButton.setOnClickListener(onClickListener);
         reserveButton.setOnClickListener(onClickListener);
-
+        reserveConfirmButton.setOnClickListener(onClickListener);
         //다이얼로그
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("잠시만 기다려주세요 :)");
@@ -75,6 +78,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                     case R.id.login_btn_reserve:
                         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(mainIntent);
+                        break;
+                    case R.id.login_btn_reserve_confirm:
+                        Intent confirmIntent = new Intent(LoginActivity.this, ReserveConfirmActivity.class);
+                        startActivity(confirmIntent);
                         break;
                 }
             }

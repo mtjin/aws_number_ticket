@@ -1,4 +1,4 @@
-package com.mtjin.aws_number_ticket.activity.Reserve;
+package com.mtjin.aws_number_ticket.activity.reserve;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,6 +38,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
     Button okButton;
     EditText nameEdit;
     EditText telEdit;
+    EditText pwEdit;
 
     ReservePresenter presenter;
 
@@ -46,6 +47,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
     TimePickerDialog timePickerdialog;
 
     int id;
+    String restaurantName ="";
 
     private static final String ID_EXTRA = "ID_EXTRA";
     private static final String NAME_EXTRA = "NAME_EXTRA";
@@ -70,6 +72,7 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
         timepickButton = findViewById(R.id.reserve_btn_timepick);
         nameEdit = findViewById(R.id.reserve_et_name);
         telEdit = findViewById(R.id.reserve_et_tel);
+        pwEdit = findViewById(R.id.reserve_et_pw);
         okButton = findViewById(R.id.reserve_btn_ok);
         presenter = new ReservePresenter(this);
         processIntent();
@@ -101,9 +104,10 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
             public void onClick(View view) {
                 String name = nameEdit.getText().toString().trim();
                 String tel = telEdit.getText().toString().trim();
+                String pw = pwEdit.getText().toString().trim();
                 String date = yearText.getText().toString().trim() +"-"+monthText.getText().toString().trim()+"-"+dayText.getText().toString().trim();
                 String time = hourText.getText().toString().trim() + ":" + minuteText.getText().toString().trim();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.KOREA);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a hh:mm", Locale.KOREA);
                 Calendar calendar = Calendar.getInstance();
                 Date date2 = calendar.getTime();
                 sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
@@ -113,10 +117,13 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
                     onToastMessage("예약자 이름을 입력해주세요");
                 }else if(tel.length() <=0){
                     onToastMessage("전화번호를 입력해주세요");
-                }else if(date.contains("?") || time.contains("?")){
+                }else if(pw.length() <= 0){
+                    onToastMessage("비밀번호를 입력해주세요");
+                }
+                else if(date.contains("?") || time.contains("?")){
                     onToastMessage("예약날짜와 시간을 정해주세요");
                 }else{
-                    presenter.requestReserve(id+"", name, currentDate, date +" "+ time, tel, "no" );
+                    presenter.requestReserve(id, restaurantName, name, currentDate, date +" "+ time, tel, pw, "no" );
                 }
             }
         });
@@ -128,7 +135,8 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
         Intent intent = getIntent();
         id = intent.getIntExtra(ID_EXTRA,0);
         nameText.setText(intent.getStringExtra(NAME_EXTRA));
-        restaurantText.setText(intent.getStringExtra(RESTAURANT_EXTRA));
+        restaurantName = intent.getStringExtra(RESTAURANT_EXTRA);
+        restaurantText.setText(restaurantName);
         locationText.setText(intent.getStringExtra(LOCATION_EXTRA));
         telText.setText(intent.getStringExtra(TEL_EXTRA));
     }
@@ -157,7 +165,6 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
                 pickedDate.get(Calendar.DATE)
         );
 
-
         minDate.set(minDate.get(Calendar.YEAR), minDate.get(Calendar.MONTH) , minDate.get(Calendar.DATE));
         datePickerDialog.getDatePicker().setMinDate(minDate.getTime().getTime());
         datePickerDialog.setMessage("예약날짜 선택");
@@ -168,8 +175,24 @@ public class ReserveActivity extends AppCompatActivity implements ReserveContrac
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 Toast.makeText(getApplicationContext(), hourOfDay + "시 " + minute + "분", Toast.LENGTH_SHORT).show();
-                hourText.setText(hourOfDay + "");
-                minuteText.setText(minute + "");
+                String state = "오전";
+                int hour = hourOfDay;
+                // 선택한 시간이 12를 넘을경우 "PM"으로 변경 및 -12시간하여 출력 (ex : PM 6시 30분)
+                if (hourOfDay >= 12) {
+                    hour -= 12;
+                    state = "오후";
+                }
+                //orderby 시간순서 쿼리문을 위해서 앞에 0을 붙여줌
+                String putHour = String.valueOf(hour);
+                String putMinute = String.valueOf(minute);
+                if(putHour.length() <= 1){
+                    putHour = "0"+putHour;
+                }
+                if(putMinute.length() <= 1){
+                    putMinute = "0" + putMinute;
+                }
+                hourText.setText(state + " "+putHour); //오전, 오후도 같이넣어줬다.
+                minuteText.setText(putMinute);
             }
         };
         TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");

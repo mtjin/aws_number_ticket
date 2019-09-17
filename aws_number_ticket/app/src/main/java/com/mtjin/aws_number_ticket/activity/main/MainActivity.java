@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mtjin.aws_number_ticket.R;
-import com.mtjin.aws_number_ticket.activity.Reserve.ReserveActivity;
+import com.mtjin.aws_number_ticket.activity.reserve.ReserveActivity;
 import com.mtjin.aws_number_ticket.model.User;
 
 import java.util.ArrayList;

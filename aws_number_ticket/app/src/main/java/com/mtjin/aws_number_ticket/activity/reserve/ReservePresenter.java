@@ -1,6 +1,5 @@
-package com.mtjin.aws_number_ticket.activity.Reserve;
+package com.mtjin.aws_number_ticket.activity.reserve;
 
-import com.mtjin.aws_number_ticket.activity.main.MainContract;
 import com.mtjin.aws_number_ticket.api.ApiClient;
 import com.mtjin.aws_number_ticket.api.ApiInterface;
 import com.mtjin.aws_number_ticket.model.Apply;
@@ -17,10 +16,10 @@ public class ReservePresenter implements  ReserveContract.Presenter {
     }
 
     @Override
-    public void requestReserve(String restaurant_id, String apply_id, String apply_date, String reserve_date, String user_tel, String accept) {
+    public void requestReserve(int restaurant_id, String restaurant_name, String apply_id, String apply_date, String reserve_date, String user_tel, String user_pw, String accept) {
         view.showProgress();
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Apply>  call = apiInterface.saveReserve(restaurant_id, apply_id, apply_date, reserve_date, user_tel ,accept);
+        Call<Apply>  call = apiInterface.saveReserve(restaurant_id, restaurant_name,  apply_id, apply_date, reserve_date, user_tel ,user_pw,accept);
         call.enqueue(new Callback<Apply>() {
             @Override
             public void onResponse(Call<Apply> call, Response<Apply> response) {

@@ -45,11 +45,13 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("restaurant/insert")
     Call<Apply> saveReserve(
-            @Field("restaurant_id") String restaurant_id,
+            @Field("restaurant_id") int restaurant_id,
+            @Field("restaurant_name") String restaurant_name,
             @Field("apply_id") String apply_id,
             @Field("apply_date") String apply_date,
             @Field("reserve_date") String reserve_date,
             @Field("user_tel") String user_tel,
+            @Field("user_pw") String user_pw,
             @Field("accept") String accept
     );
 
@@ -76,5 +78,13 @@ public interface ApiInterface {
     Call<AdminInfo> getApplysCertain(
             @Field("restaurant_id") int restaurant_id,
             @Field("reserve_date") String reserve_date
+    );
+
+    @FormUrlEncoded
+    @POST("user/reserve")
+    Call<AdminInfo> getMyReserves(
+            @Field("apply_id") String apply_id,
+            @Field("user_tel") String user_tel,
+            @Field("user_pw") String user_pw
     );
 }

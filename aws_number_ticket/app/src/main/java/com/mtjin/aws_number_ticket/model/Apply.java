@@ -9,6 +9,8 @@ public class Apply {
     @Expose
     @SerializedName("restaurant_id") private int restaurant_id;
     @Expose
+    @SerializedName("restaurant_name") private String restaurant_name;
+    @Expose
     @SerializedName("apply_id") private String apply_id;
     @Expose
     @SerializedName("apply_date") private String apply_date;
@@ -16,6 +18,8 @@ public class Apply {
     @SerializedName("reserve_date") private String reserve_date;
     @Expose
     @SerializedName("user_tel") private String user_tel;
+    @Expose
+    @SerializedName("user_pw") private String user_pw;
     @Expose
     @SerializedName("accept") private String accept;
     @Expose
@@ -30,12 +34,21 @@ public class Apply {
     public void setId(int id) {
         this.id = id;
     }
+
     public int getRestaurant_id() {
         return restaurant_id;
     }
 
     public void setRestaurant_id(int restaurant_id) {
         this.restaurant_id = restaurant_id;
+    }
+
+    public String getRestaurant_name() {
+        return restaurant_name;
+    }
+
+    public void setRestaurant_name(String restaurant_name) {
+        this.restaurant_name = restaurant_name;
     }
 
     public String getApply_id() {
@@ -68,6 +81,14 @@ public class Apply {
 
     public void setUser_tel(String user_tel) {
         this.user_tel = user_tel;
+    }
+
+    public String getUser_pw() {
+        return user_pw;
+    }
+
+    public void setUser_pw(String user_pw) {
+        this.user_pw = user_pw;
     }
 
     public String getAccept() {

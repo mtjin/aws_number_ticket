@@ -6,23 +6,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.mtjin.aws_number_ticket.R;
-import com.mtjin.aws_number_ticket.activity.Reserve.ReserveActivity;
-import com.mtjin.aws_number_ticket.activity.main.MainActivity;
-import com.mtjin.aws_number_ticket.activity.main.MainAdapter;
 import com.mtjin.aws_number_ticket.model.Apply;
-import com.mtjin.aws_number_ticket.model.User;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -119,7 +112,7 @@ public class AdminActivity extends AppCompatActivity implements AdminContract.Vi
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         Toast.makeText(getApplicationContext(), "선택날짜 : " + year + "-" + (month + 1) + "-" + dayOfMonth, Toast.LENGTH_LONG).show();
                         yearText.setText(year + "");
-                        monthText.setText(month + 1 + "");
+                        monthText.setText((month + 1) + "");
                         dayText.setText(dayOfMonth + "");
                     }
                 },

@@ -18,40 +18,40 @@
         android:padding="2dp"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="사장이름"/>
     <View
         android:layout_width="1dp"
         android:background="@color/colorBlack"
-        android:layout_height="50dp"/>
+        android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/item_restaurant_tv_restaurant"
         android:padding="2dp"
         android:layout_weight="3"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="가게이름"/>
     <View
         android:layout_width="1dp"
         android:background="@color/colorBlack"
-        android:layout_height="50dp"/>
+        android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/item_restaurant_tv_location"
         android:padding="2dp"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="장소"/>
     <View
         android:layout_width="1dp"
         android:background="@color/colorBlack"
-        android:layout_height="50dp"/>
+        android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/item_restaurant_tv_tel"
         android:padding="2dp"
         android:layout_weight="2"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="01012345678"/>
     <Button
         android:id="@+id/item_restaurant_btn_reserve"

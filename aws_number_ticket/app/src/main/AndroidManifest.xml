@@ -14,8 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.admin.AdminActivity"></activity>
-        <activity android:name=".activity.Reserve.ReserveActivity" />
+        <activity android:name=".activity.reserve_confirm.ReserveConfirmActivity"></activity>
+        <activity android:name=".activity.admin.AdminActivity" />
+        <activity android:name=".activity.reserve.ReserveActivity" />
         <activity android:name=".activity.main.MainActivity" />
         <activity android:name=".activity.signup.SignupActivity" />
         <activity android:name=".activity.login.LoginActivity">
