@@ -9,4 +9,4 @@
 
 aws(EC2, RDS) , mysql, nodejs, mvp design pattern, android , firebase 를 사용하였다.
 
-aws관련 값들은 과금폭탄 및 해킹을 막기위해 안올렸다.
+
