@@ -8,3 +8,5 @@
 처음에 딱히 생각을 안하고 만들어서 변수명이나 디비 컬럼명 (명명법) 등 좀 이상한 부분도 있다.
 
 aws(EC2, RDS) , mysql, nodejs, mvp design pattern, android , firebase 를 사용하였다.
+
+aws관련 값들은 과금폭탄 및 해킹을 막기위해 안올렸다.
